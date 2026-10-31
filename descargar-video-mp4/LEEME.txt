@@ -1,0 +1,41 @@
+DESCARGAR VIDEO A MP4
+=====================
+
+Qué hace
+--------
+Cuando una página reproduce un video "en pedazos" (HLS, los archivos .m3u8 y .ts),
+esta extensión lo detecta, baja todos los pedazos desde la misma página, los une
+y te deja un solo archivo .mp4 en tu carpeta de Descargas. No reconvierte nada:
+la calidad queda igual que la original.
+
+Cómo instalarla en Brave (o Chrome)
+-----------------------------------
+1. Dejá esta carpeta en un lugar fijo (por ejemplo, tu carpeta personal).
+   El navegador la lee desde ahí cada vez que arranca: si la borrás o la movés,
+   la extensión deja de andar.
+2. En el navegador abrí:  brave://extensions   (en Chrome:  chrome://extensions)
+3. Arriba a la derecha, prendé "Modo de desarrollador".
+4. Tocá "Cargar descomprimida" y elegí esta carpeta.
+5. Para tener el ícono a mano: tocá la pieza de rompecabezas de la barra y fijalo.
+
+Cómo usarla
+-----------
+1. Abrí la página del video y dale play.
+2. En el ícono de la extensión aparece una flechita. Tocá el ícono.
+3. Si querés, cambiá el nombre del archivo. Tocá "Descargar".
+4. Dejá la pestaña del video abierta hasta que termine. La ventanita de la
+   extensión la podés cerrar: el avance se ve en el ícono, y al final queda un tilde.
+
+Si la instalaste con la página del video ya abierta, recargá esa página una vez.
+
+Cosas a saber
+-------------
+- Videos con protección anticopia (DRM, como los de Netflix o Disney+) o
+  cifrados: no se pueden guardar. La extensión te avisa.
+- Transmisiones en vivo: guarda solo lo que hay disponible en ese momento.
+- Si el video viene en un formato que no entra en un mp4, lo guarda tal cual
+  (casi siempre un .ts, que se ve con VLC) y te lo dice.
+- Si aparece "error 403", el link venció: recargá la página, dale play y probá
+  de nuevo.
+- En "Opciones" hay un modo "sin convertir", por si algún mp4 saliera mal.
+- La extensión no manda nada a ningún lado: todo pasa en tu navegador.

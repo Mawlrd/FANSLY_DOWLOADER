@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Descargar video a MP4</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <h1>Descargar video</h1>
+
+    <section id="v-wait" hidden>
+      <p class="lead">Buscando el video…</p>
+    </section>
+
+    <section id="v-blocked" hidden>
+      <p class="lead">Esta página no se puede leer.</p>
+      <p>Las páginas propias del navegador están protegidas. Abrí la página donde está el video y tocá este ícono ahí.</p>
+    </section>
+
+    <section id="v-empty" hidden>
+      <p class="lead">Todavía no vi ningún video en esta página.</p>
+      <ol class="steps">
+        <li>Dale play al video.</li>
+        <li>Volvé a tocar este ícono.</li>
+      </ol>
+      <p class="hint">Si recién instalaste la extensión, recargá la página antes.</p>
+    </section>
+
+    <section id="v-list" hidden>
+      <label class="field">
+        <span>Nombre del archivo</span>
+        <input id="name" type="text" spellcheck="false" autocomplete="off" maxlength="100">
+      </label>
+      <ul id="items"></ul>
+      <p id="list-error" class="problem" hidden></p>
+      <details id="options">
+        <summary>Opciones</summary>
+        <label class="check"><input type="checkbox" id="raw"> Guardar sin convertir a mp4</label>
+        <p class="hint">Deja los pedazos unidos tal cual vienen (casi siempre un archivo .ts, que se ve con VLC). Sirve si el mp4 saliera mal.</p>
+      </details>
+    </section>
+
+    <details id="manual" hidden>
+      <summary>¿No aparece tu video?</summary>
+      <label class="field">
+        <span>Pegá el link de la lista del video (termina en .m3u8)</span>
+        <input id="link" type="url" spellcheck="false" autocomplete="off" placeholder="https://…/video.m3u8">
+      </label>
+      <button id="go" type="button">Descargar este link</button>
+      <p id="manual-error" class="problem" hidden></p>
+    </details>
+
+    <section id="v-run" hidden>
+      <p class="percent"><span id="pct">0</span><span class="unit">%</span></p>
+      <div id="strip" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Avance de la descarga"></div>
+      <p id="run-line">Leyendo la lista del video…</p>
+      <p id="run-eta" class="hint"></p>
+      <p class="hint">Dejá esta pestaña abierta hasta que termine. Esta ventanita la podés cerrar.</p>
+      <button id="cancel" type="button" class="quiet">Cancelar</button>
+    </section>
+
+    <section id="v-done" hidden>
+      <p class="lead ok">Descargado</p>
+      <p id="done-file" class="file"></p>
+      <p id="done-where"></p>
+      <p id="done-note" class="hint" hidden></p>
+      <div class="actions">
+        <button id="show" type="button">Mostrar en la carpeta</button>
+        <button id="again" type="button" class="quiet">Descargar otro</button>
+      </div>
+    </section>
+
+    <section id="v-error" hidden>
+      <p class="lead bad" id="err-title">No se pudo descargar</p>
+      <p id="err-msg"></p>
+      <div class="actions">
+        <button id="resave" type="button" hidden>Guardar de nuevo</button>
+        <button id="retry" type="button">Volver a la lista</button>
+      </div>
+    </section>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
